@@ -9,6 +9,7 @@ before_install:
 
 script:
   - docker run -e CI=true hamza/frontend npm run test -- --coverage
+  - echo 'hamza'
 
 deploy:
     provider: elasticbeanstalk
@@ -18,7 +19,8 @@ deploy:
     bucket_name: "elasticbeanstalk-ap-southeast-1-565495860240"
     on:
         branch: master
-    access_key_id: $AWS_ACCESS_ID
+    access_key_id: 
+      secure: $AWS_ACCESS_ID
     secret_access_key:
         secure: $AWS_SECRET_KEY
     
